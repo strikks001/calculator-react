@@ -32,10 +32,6 @@
 }
 
 .display__result {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
 	position: relative;
 	overflow-x: scroll;
 	overflow-y: hidden;
