@@ -36,7 +36,8 @@
 	overflow-x: scroll;
 	overflow-y: hidden;
 
-	width: 292px;
+	width: 100%;
+	max-width: 290px;
 	height: 64px;
 
 	background-color: #02554e;
@@ -49,7 +50,7 @@
 }
 
 .display__result::before {
-	content: '8888888888888888';
+	content: '88888888888';
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -87,5 +88,6 @@
 
 .display__result span {
 	color: #5affe2;
-	width: 100%;
+	display: inline-block;
+	white-space: nowrap;
 }

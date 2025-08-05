@@ -19,3 +19,11 @@
 
 	padding: 25px;
 }
+
+@media screen and (max-width: 768px) {
+	.keypad__container {
+		grid-template-columns: repeat(4, minmax(70px, 0fr));
+		gap: 20px 2vw;
+		padding: 15px;
+	}
+}
