@@ -2,6 +2,8 @@
 
 A classic, old-school calculator built with React, TypeScript, CSS Modules, and Vite (using SWC for fast builds). This project demonstrates fundamental React concepts with a focus on clean code, component-based architecture, and responsive design.
 
+![Calculator screenshot](public/calculator-screenshot.png)
+
 ---
 
 ## Features
