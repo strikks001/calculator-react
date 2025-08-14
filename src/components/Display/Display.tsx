@@ -16,7 +16,10 @@ export default function Display({ calculation }: DisplayProps) {
 	}, [calculation]);
 
 	return (
-		<div className={styles.display}>
+		<div
+			className={styles.display}
+			role='region'
+			aria-label='calculator display'>
 			<div className={styles.display__container}>
 				<div
 					className={styles.display__result}
