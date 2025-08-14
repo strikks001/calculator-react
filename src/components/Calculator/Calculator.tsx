@@ -29,15 +29,17 @@ const buttons: string[] = [
 export default function Calculator() {
 	const [calculation, setCalculation] = useState<string>('');
 
-	// Function to handle key presses
+	// Central logic for handling all keypad and keyboard inputs, including special keys
 	const handleKeyPress = useCallback((key: string) => {
 		switch (key) {
+			// Clear last character or reset completely if showing an error
 			case 'C':
 				setCalculation((prev) => {
 					if (prev === 'ERROR') return '';
 					return prev.slice(0, -1);
 				});
 				break;
+			// Evaluate the current expression, handle percentages, and catch invalid inputs
 			case '=':
 				setCalculation((prev) => {
 					try {
@@ -50,6 +52,7 @@ export default function Calculator() {
 					}
 				});
 				break;
+			// Append pressed key to the current calculation, resetting if in error state
 			default:
 				setCalculation((prev) => {
 					if (prev === 'ERROR') prev = '';
@@ -59,12 +62,15 @@ export default function Calculator() {
 		}
 	}, []);
 
+	// Listen for physical keyboard events and map them to calculator actions
 	useEffect(() => {
 		function handleKeyboard(event: KeyboardEvent) {
 			let key = event.key;
 
+			// Ignore key holds to prevent repeated input
 			if (event.repeat) return;
 
+			// Normalize multiple key names to the calculator's "clear" action
 			if (
 				key === 'c' ||
 				key === 'Backspace' ||
@@ -72,6 +78,8 @@ export default function Calculator() {
 				key === 'Delete'
 			)
 				key = 'C';
+
+			// Map Enter key to equals
 			if (key === 'Enter') key = '=';
 
 			if (buttons.includes(key)) {
@@ -90,7 +98,7 @@ export default function Calculator() {
 				<Display calculation={calculation} />
 				<div className={styles.calculator__switch}>
 					<img
-						src='/src/assets/switch.svg'
+						src='/src/assets/images/switch.svg'
 						alt='Switch'
 						className={styles['calculator__switch-img']}
 					/>

@@ -37,7 +37,7 @@
 	overflow-y: hidden;
 
 	width: 100%;
-	max-width: 290px;
+	max-width: 80%;
 	height: 64px;
 
 	background-color: #02554e;
@@ -50,7 +50,7 @@
 }
 
 .display__result::before {
-	content: '88888888888';
+	content: '88888888';
 	position: absolute;
 	top: 0;
 	right: 0;

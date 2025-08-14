@@ -6,9 +6,10 @@ type DisplayProps = {
 };
 
 export default function Display({ calculation }: DisplayProps) {
+	// Reference to the calculation display area for direct scroll control
 	const displayRef = useRef<HTMLDivElement>(null);
 
-	// Ensure the display is always scrolled to the end
+	// Keep the latest part of the calculation visible by scrolling to the end whenever it updates
 	useEffect(() => {
 		if (displayRef.current) {
 			displayRef.current.scrollLeft = displayRef.current.scrollWidth;
